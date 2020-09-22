@@ -456,9 +456,9 @@ async def on_message(message):
 					return
 				makeTablePic()
 				#await message.channel.send(f"{msg.contet}")
-				#file_img = discord.File("/tmp/test.png")
-				#await message.channel.send(File=file_img)
-				await client.send_file(message.channel, "/tmp/test.png")
+				file_img = discord.File("/tmp/test.png")
+				await message.channel.send(file=file_img)
+				#await client.send_file(message.channel, "/tmp/test.png")
 	else:
 		if connected:
 			voice_client = message.guild.voice_client
