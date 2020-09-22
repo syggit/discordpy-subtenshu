@@ -8,9 +8,13 @@ import urllib.parse
 import subprocess, os
 import asyncio
 
-from PIL import Image, ImageDraw, ImageFont
+#from PIL import Image, ImageDraw, ImageFont
 #import math
 
+def makeTablePic():
+	pass
+
+"""
 def makeTablePic():
 	im=Image.new('RGB', (750,300),(255,255,255))
 	draw=ImageDraw.Draw(im)
@@ -41,7 +45,6 @@ def makeTablePic():
 	draw.text((590,40),"設定",font=fnt,fill=(0,0,0,255))
 	draw.text((560,65),"間",font=fnt,fill=(0,0,0,255))
 	
-	"""
 	v=[]
 	v.append( int(B2*0.5/2+0.99) )
 	v.append( 24.0 )
@@ -70,8 +73,9 @@ def makeTablePic():
 	draw.text((320,220),"%2.1f ℃" % v[7],font=fnt,fill=(0,0,0,255))
 	draw.text((450,220),"%2d 円" % v[6],font=fnt,fill=(0,0,0,255))
 	draw.text((620,220),"%2d 分" % v[8],font=fnt,fill=(0,0,0,255))
-	"""
+	
 	im.save("/tmp/test.png")
+"""
 
 def loadSetting(kind):
 	global gasurl
