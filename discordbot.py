@@ -455,6 +455,7 @@ async def on_message(message):
 					await message.channel.send("> [DEBUG] 構文エラー")
 					return
 				makeTablePic()
+				"https://moji.or.jp/wp-content/ipafont/IPAexfont/ipaexg00401.zip"
 				#await message.channel.send(f"{msg.contet}")
 				file_img = discord.File("/tmp/test.png")
 				await message.channel.send(file=file_img)
