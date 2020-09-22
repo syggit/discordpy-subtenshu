@@ -211,13 +211,13 @@ async def on_message(message):
 	
 	if message.content[0] == '/':
 		pass
-	elif message.content[0] == '$':
+	elif message.content[0] == '!':
 		pass
 	elif message.content[0] == '?':
 		pass
 	elif message.content[0] == ';':
 		pass
-	elif message.content[0] == '!':
+	elif message.content[0] == '$':
 		m=message.content[1:]
 		m=m.replace("　"," ")
 		m=m.replace("\t"," ")
