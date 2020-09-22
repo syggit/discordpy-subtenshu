@@ -452,7 +452,7 @@ async def on_message(message):
 					await message.channel.send("> [DEBUG] 構文エラー")
 					return
 				makeTablePic()
-				await message.channel.send(f"{msg.contet}")
+				#await message.channel.send(f"{msg.contet}")
  				file_img = discord.File("/tmp/test.png")
 				await message.channel.send(File=file_img)
 	else:
