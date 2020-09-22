@@ -35,6 +35,7 @@ def makeTablePic():
 	draw.line((540, 10,540,260),fill=(0,0,0,255),width=1)
 	
 	
+	"""
 	draw.text((110,30),"中の",font=fnt,fill=(0,0,0,255))
 	draw.text((110,55),"方法",font=fnt,fill=(0,0,0,255))
 	draw.text((300,30),"時の",font=fnt,fill=(0,0,0,255))
@@ -44,7 +45,6 @@ def makeTablePic():
 	draw.text((590,40),"設定",font=fnt,fill=(0,0,0,255))
 	draw.text((560,65),"間",font=fnt,fill=(0,0,0,255))
 	
-	"""
 	v=[]
 	v.append( int(B2*0.5/2+0.99) )
 	v.append( 24.0 )
