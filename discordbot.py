@@ -8,11 +8,11 @@ import urllib.parse
 import subprocess, os
 import asyncio
 
-#from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont
 #import math
 
-#def makeTablePic():
-#	pass
+def makeTablePic():
+	pass
 
 """
 def makeTablePic():
@@ -451,14 +451,14 @@ async def on_message(message):
 					await message.channel.send("> あいよ！読み上げ文字数設定一丁！")
 				else:
 					await message.channel.send("> [DEBUG] ネットワークエラー。設定値の保存に失敗")
-			#if v[1].lower() == 'sc':
-			#	if len(v)!=2:
-			#		await message.channel.send("> [DEBUG] 構文エラー")
-			#		return
-			#	makeTablePic()
-			#	#await message.channel.send(f"{msg.contet}")
- 			#	file_img = discord.File("/tmp/test.png")
-			#	await message.channel.send(File=file_img)
+			if v[1].lower() == 'sc':
+				if len(v)!=2:
+					await message.channel.send("> [DEBUG] 構文エラー")
+					return
+				makeTablePic()
+				#await message.channel.send(f"{msg.contet}")
+ 				file_img = discord.File("/tmp/test.png")
+				await message.channel.send(File=file_img)
 	else:
 		if connected:
 			voice_client = message.guild.voice_client
