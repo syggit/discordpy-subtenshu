@@ -8,7 +8,70 @@ import urllib.parse
 import subprocess, os
 import asyncio
 
+from PIL import Image, ImageDraw, ImageFont
+#import math
 
+def makeTablePic():
+	im=Image.new('RGB', (750,300),(255,255,255))
+	draw=ImageDraw.Draw(im)
+	#fnt=ImageFont.truetype("/system/fonts/DroidSans.ttf",24)
+	#fnt=ImageFont.truetype("/system/fonts/NotoSansCJK-Regular.ttc",24)
+	
+	draw.rectangle((10,10,740,113),fill=(210,210,210))
+	draw.rectangle((10,10,50,260),fill=(210,210,210))
+	draw.rectangle((10,10,740,260),outline=(0,0,0,255))
+	draw.rectangle((10-1,10-1,740+1,260+1),outline=(0,0,0,255))
+	draw.line(( 10,110,740,110),fill=(0,0,0,255),width=1)
+	draw.line(( 10,113,740,113),fill=(0,0,0,255),width=1)
+	draw.line(( 10,160,740,160),fill=(0,0,0,255),width=1)
+	draw.line(( 10,210,740,210),fill=(0,0,0,255),width=1)
+	draw.line(( 50, 10, 50,260),fill=(0,0,0,255),width=1)
+	draw.line(( 10, 10, 50,110),fill=(0,0,0,255),width=1)
+	draw.line((280, 10,280,260),fill=(0,0,0,255),width=1)
+	draw.line((420, 10,420,260),fill=(0,0,0,255),width=1)
+	draw.line((540, 10,540,260),fill=(0,0,0,255),width=1)
+	
+	
+	draw.text((110,30),"中の",font=fnt,fill=(0,0,0,255))
+	draw.text((110,55),"方法",font=fnt,fill=(0,0,0,255))
+	draw.text((300,30),"時の",font=fnt,fill=(0,0,0,255))
+	draw.text((320,55),"中の",font=fnt,fill=(0,0,0,255))
+	draw.text((440,40),"中の",font=fnt,fill=(0,0,0,255))
+	draw.text((580,15),"再開、",font=fnt,fill=(0,0,0,255))
+	draw.text((590,40),"設定",font=fnt,fill=(0,0,0,255))
+	draw.text((560,65),"間",font=fnt,fill=(0,0,0,255))
+	
+	"""
+	v=[]
+	v.append( int(B2*0.5/2+0.99) )
+	v.append( 24.0 )
+	v.append( 0 )
+	v.append( int((1 if B2==1 else 0)+0.6+(B2*0+35*(1-math.exp(-B2*0.018)))/2))
+	v.append( int((20.4+4*math.exp(-B2*0.018))*2)/2.0)
+	v.append( int(0.99+B2*0.024+9*(1-math.exp(-B2*0.018))))
+	v.append( int(0.99+(22*(1-math.exp(-B2*0.06)))/2))
+	v.append( int((15.4+9*math.exp(-B2*0.06))*2)/2.0)
+	v.append( int(0.99+20*(1-math.exp(-B2*0.06))))
+	
+	draw.text((20,120),"①",font=fnt,fill=(0,0,0,255))
+	draw.text((60,120),"つけっぱなし",font=fnt,fill=(0,0,0,255))
+	draw.text((320,120),"%2.1f ℃" % v[1],font=fnt,fill=(0,0,0,255))
+	draw.text((450,120),"%2d 円" % v[0],font=fnt,fill=(0,0,0,255))
+	draw.text((620,120),"---",font=fnt,fill=(0,0,0,255))
+	
+	draw.text((20,170),"②",font=fnt,fill=(0,0,0,255))
+	draw.text((60,170),"新・運転",font=fnt,fill=(0,0,0,255))
+	draw.text((320,170),"%2.1f ℃" % v[4],font=fnt,fill=(0,0,0,255))
+	draw.text((450,170),"%2d 円" % v[3],font=fnt,fill=(0,0,0,255))
+	draw.text((620,170),"%2d 分" % v[5],font=fnt,fill=(0,0,0,255))
+	
+	draw.text((20,220),"③",font=fnt,fill=(0,0,0,255))
+	draw.text((60,220),"外出中OFF",font=fnt,fill=(0,0,0,255))
+	draw.text((320,220),"%2.1f ℃" % v[7],font=fnt,fill=(0,0,0,255))
+	draw.text((450,220),"%2d 円" % v[6],font=fnt,fill=(0,0,0,255))
+	draw.text((620,220),"%2d 分" % v[8],font=fnt,fill=(0,0,0,255))
+	"""
+	im.save("/tmp/test.png")
 
 def loadSetting(kind):
 	global gasurl
@@ -384,6 +447,14 @@ async def on_message(message):
 					await message.channel.send("> あいよ！読み上げ文字数設定一丁！")
 				else:
 					await message.channel.send("> [DEBUG] ネットワークエラー。設定値の保存に失敗")
+			if v[1].lower() == 'sc':
+				if len(v)!=2:
+					await message.channel.send("> [DEBUG] 構文エラー")
+					return
+				makeTablePic()
+				await message.channel.send(f"{msg.contet}")
+ 				file_img = discord.File("/tmp/test.png")
+				await message.channel.send(File=file_img)
 	else:
 		if connected:
 			voice_client = message.guild.voice_client
