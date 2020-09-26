@@ -299,6 +299,11 @@ async def on_message(message):
 			await on_message_connect(message)
 		if v[0].lower() == 'oqe':
 			await on_message_disconnect(message)
+		if v[0].lower() == 'oqo':
+			#counter = 0
+			async for msg in channel.history(limit=100):
+				if msg.author == client.user:
+					print(msg.content)
 		if v[0].lower() == 'oq' and len(v)>=2:
 			if v[1].lower()=="s":
 				await on_message_connect(message)
