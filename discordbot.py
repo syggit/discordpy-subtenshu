@@ -301,7 +301,7 @@ async def on_message(message):
 			await on_message_disconnect(message)
 		if v[0].lower() == 'oqo':
 			#counter = 0
-			async for msg in channel.history(limit=100):
+			async for msg in message.channel.history(limit=100):
 				if msg.author == client.user:
 					if len(msg.content)==0 or msg.content[0]!=";":
 						await on_message_disconnect(";"+msg.content)
